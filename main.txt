@@ -1,5 +1,19 @@
-word_i = input("tyoe: ")
-e_word = ["haj", "hej", "hejsa"]
+word_i = input("type: ")
+e_word = ["Hello", "What", "Lol"]
+
+
+with open ("data.txt", "r") as dictionary:
+
+    for line in dictionary:
+        print(line)
+        new_line = line.replace("\n", "")
+        e_word.append(new_line)
+        
+    dictionary.close
+    print(e_word)
+    
+    
+    
 c_word = e_word[0]
 runned = 0
 iw = len(c_word)
@@ -12,6 +26,14 @@ biggest =  ""
 biggest_point = (0)
 l_e_word = len(e_word)
 
+
+
+
+
+
+    
+    
+    
 
 
 def notSameRange_in():
