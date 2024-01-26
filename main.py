@@ -60,32 +60,23 @@ def notSameRange_in():
         return
 
 def run():
-    global a_1
-    global b_1
-    global point
+    global a_1, b_1, point
     for x in range(o): 
-        if a_1 < o:
+        if len(c_word) > a_1:
             y = c_word[a_1]
+            z = word_i[b_1]
+            b_1 += 1
+            if y == z:
+                print("Match")
+                point += 1
+            else:
+                print("notmatch")
+            a_1 += 1
         else:
-            a_1 = 0
             changeText()
             return
-
-        z = word_i[b_1]
-        b_1 += 1
-        if y == z:
-            print("Match")
-            point += 1
-        else:
-            print("notmatch")
-    if a_1 <= o:
-        a_1 += 1
-    else:
-        a_1 = 0
-        changeText()
-        return
     notSameRange_in()
-        
+
         
 
     
