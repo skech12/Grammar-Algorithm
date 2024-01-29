@@ -9,3 +9,4 @@ Then, run the program and input a word. The algorithm will determine and indicat
 
 Update:
 Instead of using the "e_word" list to fill your entire dictionary, you will now be able to upload a text file directly.
+Remember to change "data.txt" to your dictionary file.
