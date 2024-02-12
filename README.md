@@ -14,7 +14,7 @@ Remember to change "data.txt" to your dictionary file.
 !!!!!!
 _______________
 BIG update!
-Coming on 13-02.
+Coming on 13-02, it will be out no later than 18:00 CET.
 Removed 30 to 40 lines of code.
 Made it capable of checking full sentences.
 Machine learning new words while writing with the user.
