@@ -7,6 +7,7 @@ biggest_point = 0  # The number of points the next word needs to beat before it 
 biggest_match = ""
 
 
+
 def getLetter(checked, point):
     global biggest_point, biggest_match
     with open("data.txt", "r") as file:
