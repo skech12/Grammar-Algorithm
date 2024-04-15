@@ -29,6 +29,7 @@ def getLetter(checked, point):
                 checked += 1
             else:
                 checked += 1
+                point = 0
 
 
 getLetter(checked, point)
