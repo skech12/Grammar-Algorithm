@@ -1,44 +1,56 @@
+# Define the main function that starts the program.
 def start():
-    # Split the prompt into words.
-    prompt = "hello there".split()
+    # Take input from the user, split it into words, and convert each word to lowercase.
+    prompt = [p.lower() for p in input("Type: ").split()]
     
-    # This will hold the best match for each prompt word.
+    # Define a list of words to remove from the input (common filler words).
+    listToRemove = ["how", "can", "i"]
+    for x in listToRemove:
+        if x in prompt:
+            prompt.remove(x)
+    
+    # Initialize an empty list to store the best matching words.
     best_matches = []
 
-    # Open and read the file "Stories.txt".
-    with open("Stories.txt", "r", encoding='utf-8') as file:
+    # Open the file "Stories.txt" and read its content. Then split it into a list of words.
+    with open("Stories.txt", "r", encoding="utf-8") as file:
         content = file.read().split()
     
-    # For each word in the prompt, find the best matching word in the file.
+    # Convert all words in the content to lowercase for case-insensitive comparison.
+    content = [word.lower() for word in content]
+
+    # Iterate over each word in the user input prompt.
     for pword in prompt:
-        best_score = float('inf')  # Start with a very high (worst) score.
-        best_match = None
+        best_score = float('inf')  # Initialize the best score as infinity.
+        best_match = None  # Initialize the best match as None.
         
+        # Compare the user word with each word in the file content.
         for word in content:
-            # Only compare words with the same length as the prompt word.
+            # Only compare words that have the same length.
             if len(word) != len(pword):
                 continue
             
-            # Count matching letters between the file word and the prompt word.
-            points = 0
-            for letter in word:
-                for letter2 in pword:
-                    if letter == letter2:
-                        points += 1
+            # Calculate the number of matching letters at the same position.
+            points = sum(1 for letter, letter2 in zip(word, pword) if letter == letter2)
             
-            # Calculate the matching score:
-            # Lower 'mn' means more matching letters (given: mn = len(word) - points - len(pword)).
-            mn = len(word) - points - len(pword)
+            # Compute the score as the total length minus the number of matching letters.
+            # Lower score means a closer match.
+            score = len(word) - points
             
-            # If this word has a score lower than (or equal to) our best score, update the best match.
-            if mn <= best_score:
-                best_score = mn
+            # Update the best match if the current score is lower than the previous best.
+            if score < best_score:
+                best_score = score
                 best_match = word
         
-        # Save the best matching word for this prompt word.
+        # Append the best matching word for this prompt word to the list.
         best_matches.append(best_match)
     
+    # Print out the best matches found.
     print("Best matches:", best_matches)
+    
+    # Call the function 'findPrompt' with the list of best matches.
+    # Note: 'findPrompt' should be defined elsewhere in your code.
+    findPrompt(best_matches)
 
-# Execute the function.
+# Start the program by calling the 'start' function.
 start()
